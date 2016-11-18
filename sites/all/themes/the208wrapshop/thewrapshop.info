@@ -5,36 +5,52 @@ package = Core
 version = VERSION
 core = 7.x
 
-stylesheets[all][] = css/style.min.css
+base theme = bootstrap
+
+
 
 scripts[] = js/wrapshop.js
 
-regions[header] = Header
-regions[help] = Help
-regions[page_top] = Page top
-regions[page_bottom] = Page bottom
-regions[highlighted] = Highlighted
+;;;;;;;;;;;;;;;;;;;;;
+;; Regions
+;;;;;;;;;;;;;;;;;;;;;
 
-regions[featured] = Featured
-regions[content] = Content
-regions[sidebar_first] = Sidebar first
-regions[sidebar_second] = Sidebar second
-
-regions[triptych_first] = Triptych first
-regions[triptych_middle] = Triptych middle
-regions[triptych_last] = Triptych last
-
-regions[footer_firstcolumn] = Footer first column
-regions[footer_secondcolumn] = Footer second column
-regions[footer_thirdcolumn] = Footer third column
-regions[footer_fourthcolumn] = Footer fourth column
-regions[footer] = Footer
-
-settings[shortcut_module_link] = 0
+regions[navigation]     = 'Navigation'
+regions[header]         = 'Top Bar'
+regions[highlighted]    = 'Highlighted'
+regions[help]           = 'Help'
+regions[content]        = 'Content'
+regions[sidebar_first]  = 'Primary'
+regions[sidebar_second] = 'Secondary'
+regions[footer]         = 'Footer'
+regions[page_top]       = 'Page top'
+regions[page_bottom]    = 'Page bottom'
 
 
-; Information added by Drupal.org packaging script on 2016-11-16
-version = "7.52"
-project = "drupal"
-datestamp = "1479322922"
+;;;;;;;;;;;;;;;;;;;;;
+;; Stylesheets
+;;;;;;;;;;;;;;;;;;;;;
 
+stylesheets[all][] = css/style.css
+stylesheets[all][] = css/custom.min.css
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;; Scripts
+;;;;;;;;;;;;;;;;;;;;;
+
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/affix.js'
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/alert.js'
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/button.js'
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/carousel.js'
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/collapse.js'
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/dropdown.js'
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/modal.js'
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/tooltip.js'
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/popover.js'
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/scrollspy.js'
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/tab.js'
+scripts[] = 'bootstrap/assets/javascripts/bootstrap/transition.js'
+
+; Disable the CDN provider so compiled source files can be used.
+settings[bootstrap_cdn] = ''
