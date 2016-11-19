@@ -10,7 +10,7 @@
  */
 Drupal.behaviors.vegas = {
   attach: function (context, settings) {
-    $('#page-header').once('vegas', function() {
+    $('').once('vegas', function() {
       var vegas = settings['vegas'] || [];
       // Apply the whole slideshow.
       if (vegas['backgrounds'] || false) {
