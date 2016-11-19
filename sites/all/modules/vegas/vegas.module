@@ -115,7 +115,8 @@ function vegas_libraries_info() {
     'download url' => 'https://github.com/jaysalvat/vegas/archive/master.zip',
     'version arguments' => array(
       'file' => 'jquery.vegas.js',
-      'pattern' => '/v ((?:\d+\.?){2,3})$/',
+//      'pattern' => '/v ((?:\d+\.?){2,3})$/',
+      'pattern' => '/\s+v?([0-9\.]+)/',
       'lines' => 10,
       'cols' => 30,
     ),
