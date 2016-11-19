@@ -108,30 +108,28 @@ function vegas_init() {
 /**
  * Implements hook_libraries_info().
  */
-/**
- * Implements hook_libraries_info().
- */
 function vegas_libraries_info() {
   $libraries['vegas'] = array(
     'name' => 'Vegas jQuery Plugin',
     'vendor url' => 'https://github.com/jaysalvat/vegas',
     'download url' => 'https://github.com/jaysalvat/vegas/archive/master.zip',
     'version arguments' => array(
-      'file' => 'CHANGELOG.md',
-      'pattern' => '/### Vegas ?([0-9\.]+)/',
-      'lines' => 5,
+      'file' => 'jquery.vegas.js',
+      'pattern' => '/v ((?:\d+\.?){2,3})$/',
+      'lines' => 10,
+      'cols' => 30,
     ),
     'files' => array(
       'js' => array(
-        'dist/vegas.min.js',
+        'jquery.vegas.js',
       ),
       'css' => array(
-        'dist/vegas.min.css',
+        'jquery.vegas.css',
       ),
     ),
     'integration files' => array(
       'vegas' => array(
-        'js' => array('src/vegas.js'),
+        'js' => array('vegas.js'),
       ),
     ),
   );
