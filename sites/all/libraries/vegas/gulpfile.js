@@ -1,7 +1,7 @@
 /* Utlimate Jay Mega Gulpfile */
 /* global require:true, process:true */
 /* jshint laxbreak:true */
-
+require('es6-promise').polyfill();
 (function () {
     'use strict';
 
