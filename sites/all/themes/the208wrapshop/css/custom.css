@@ -50,7 +50,11 @@ nav .header-address {
 nav .header-phone {
   padding-bottom: 50px;
   font: bold 27px/37px Lato, Arial, sans-serif;
+<<<<<<< HEAD
   color: #e20002;
+=======
+  color: #8E0000;
+>>>>>>> f1bf33ca03a7c1ce3beb9b4d17c3f8fa1496d027
   margin-top: 4px;
   text-transform: uppercase;
   padding-left: 29px; }
