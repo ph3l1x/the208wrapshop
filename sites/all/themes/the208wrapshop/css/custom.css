@@ -36,9 +36,9 @@ nav ul.navbar-nav {
     border-left: 1px solid #424242;
     transition: all 0.3s ease; }
   nav ul.navbar-nav li:hover {
-    background: #73b711; }
+    background: #e20002; }
   nav ul.navbar-nav li.active {
-    background: #73b711; }
+    background: #e20002; }
   nav ul.navbar-nav li.last a {
     border-right: 1px solid #424242 !important; }
 nav .header-address {
@@ -50,7 +50,7 @@ nav .header-address {
 nav .header-phone {
   padding-bottom: 50px;
   font: bold 27px/37px Lato, Arial, sans-serif;
-  color: #73b711;
+  color: #e20002;
   margin-top: 4px;
   text-transform: uppercase;
   padding-left: 29px; }
