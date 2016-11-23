@@ -5,3 +5,73 @@ body {
 .logo img {
   width: 254px;
 }
+header {
+  height: 625px;
+}
+header.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+  .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .navbar-collapse {
+    padding: 0;
+  }
+}
+
+#block-block-6 {
+  float: right;
+  background: rgba(59,59,59, .95);
+  width: 25%;
+  min-height: 175px;
+}
+
+.navbar-container {
+  width: 100%;
+  background: #212121;
+  clear: both;
+  float: left;
+}
+nav {
+  ul.navbar-nav {
+    margin-left: 5%;
+    li {
+      a {
+        background-color: inherit !important;
+        text-transform: uppercase;
+        color: white !important;
+        padding: 25px 30px;
+        font: bold 21px/30px Lato, Arial, sans-serif;
+        border-left: 1px solid rgb(66, 66, 66);
+        transition: all 0.3s ease;
+      }
+    }
+    li:hover {
+      background: rgb(115, 183, 17);
+    }
+    li.active {
+      background: rgb(115, 183, 17);
+    }
+    li.last {
+      a {
+        border-right: 1px solid rgb(66, 66, 66) !important;
+      }
+    }
+  }
+  .header-address {
+    padding-left: 29px;
+    color: rgb(255, 255, 255);
+    margin-top: 42px;
+    text-transform: uppercase;
+    font: 15px/26px Lato, Arial, sans-serif;
+  }
+  .header-phone {
+    padding-bottom: 50px;
+    font: bold 27px/37px Lato, Arial, sans-serif;
+    color: rgb(115, 183, 17);
+    margin-top: 4px;
+    text-transform: uppercase;
+    padding-left: 29px;
+  }
+}

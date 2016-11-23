@@ -34,6 +34,7 @@ function backstretch_field_formatter_info() {
         'center_x' => TRUE,
         'center_y' => TRUE,
         'random' => FALSE,
+        'caption' => FALSE,
       ),
     ),
   );
@@ -224,6 +225,25 @@ function backstretch_field_formatter_settings_form($field, $instance, $view_mode
     '#access' => $field['cardinality'] != 1,
   );
 
+  // If the image field doesn't have the Title field enabled, show a disable
+  // checkbox and provide a description notifying the user.
+  // Otherwise, provide a checkbox to use the image title for a caption
+  if ($instance['settings']['title_field'] == FALSE) {
+    $element['caption'] = array(
+      '#title' => t('Use image title as the caption'),
+      '#type' => 'checkbox',
+      '#disabled' => TRUE,
+      '#description' => t('You need to <a href="@url">enable the Title field</a> for this image field to be able use it as a caption.', array('@url' => url('admin/structure/types/manage/' . $instance['bundle'] . '/fields/' . $instance['field_name'], array('fragment' => 'edit-instance-settings-title-field', 'query' => array('destination' => 'admin/structure/types/manage/' . $instance['bundle'] . '/display'))))),
+    );
+  }
+  else {
+    $element['caption'] = array(
+      '#title' => t('Use image title as the caption'),
+      '#type' => 'checkbox',
+      '#default_value' => $settings['caption'],
+    );
+  }
+
   return $element;
 }
 
@@ -248,6 +268,7 @@ function backstretch_field_formatter_settings_summary($field, $instance, $view_m
       if ($name == 'element') {
         continue;
       }
+
       if ($name == 'element_other') {
         $value = ($settings['element'] == '') ? t('Whole page') : $value;
       }
@@ -284,10 +305,13 @@ function backstretch_field_formatter_settings_summary($field, $instance, $view_m
         $options[$name] = $label . ': ' . $value . $suffix;
       }
       else {
-        $options[$name] = $label . $suffix;
+        if ($value == TRUE) {
+          $options[$name] = $label . $suffix;
+        }
       }
     }
   }
+
 
   // Remove slideshow specific settings when only one image is allowed.
   if ($field['cardinality'] == '1') {
@@ -358,7 +382,7 @@ function backstretch_field_formatter_view($entity_type, $entity, $field, $instan
   // We need the entity id here because there could be multiple images with
   // Backstretch.
   $ids = entity_extract_ids($entity_type, $entity);
-  $id = drupal_clean_css_identifier($entity_type . '-' . $ids[0]);
+  $id = drupal_clean_css_identifier($entity_type . '-' . $ids[0] . '-' . $field['field_name']);
 
   if ($settings['random']) {
     $random_key = array_rand($items);
@@ -399,7 +423,7 @@ function backstretch_field_formatter_view($entity_type, $entity, $field, $instan
     }
   }
 
-  // Iterate all items and store the absolute url to it.
+  // Iterate all items and store the absolute url & caption to it.
   foreach ($items as &$item) {
     $uri = $item['uri'];
     // Get url to image.
@@ -409,7 +433,18 @@ function backstretch_field_formatter_view($entity_type, $entity, $field, $instan
     else {
       $url = file_create_url($uri);
     }
-    $options['items'][] = $url;
+
+    // add images and captions (if using captions).
+    if ($settings['caption']) {
+      $options['items'][] = array(
+        'url' => $url,
+        'title' => $item['title'],
+      );
+    }
+    else {
+      $options['items'][] = $url;
+    }
+
   }
 
   // Prepare a renderable array.
@@ -439,10 +474,12 @@ function backstretch_theme() {
 function theme_backstretch($variables) {
   // Normalize the variables.
   $id = $variables['id'];
+
   $options = $variables['options'];
 
   drupal_add_js(drupal_get_path('module', 'backstretch') . '/js/jquery.backstretch.min.js');
   drupal_add_js(drupal_get_path('module', 'backstretch') . '/js/backstretch.js');
+  drupal_add_css(drupal_get_path('module', 'backstretch') . '/css/backstretch.css');
   drupal_add_js(array('backstretch' => array($id => $options)), 'setting');
 
   return '';
@@ -493,6 +530,11 @@ function backstretch_formatter_options() {
     ),
     'random' => array(
       'label' => t('Random'),
+      'type' => 'bool',
+    ),
+    'caption' => array(
+      'label' => t('Image Title as Caption'),
+      'js' => 'caption',
       'type' => 'bool',
     ),
   );
