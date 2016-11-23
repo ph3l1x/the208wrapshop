@@ -369,7 +369,7 @@ ini_set('session.cookie_lifetime', 2000000);
  * between your various domains. Make sure to always start the $cookie_domain
  * with a leading dot, as per RFC 2109.
  */
-# $cookie_domain = '.example.com';
+$cookie_domain = '.mindimage.net';
 
 /**
  * Variable overrides:
