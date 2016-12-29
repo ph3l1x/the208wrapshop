@@ -53,12 +53,14 @@ nav ul.navbar-nav {
     background: #e20002; }
   nav ul.navbar-nav li.last a {
     border-right: 1px solid #424242 !important; }
+
 nav .header-address {
   padding-left: 29px;
   color: white;
   margin-top: 42px;
   text-transform: uppercase;
   font: 15px/26px Lato, Arial, sans-serif; }
+
 nav .header-phone {
   padding-bottom: 50px;
   font: bold 27px/37px Lato, Arial, sans-serif;
@@ -338,3 +340,6 @@ footer.container-fluid {
   #block-block-14 a:hover {
     color: #FB0001;
     text-decoration: none; }
+
+*, *::before, *::after {
+  outline: 2px solid hotpink; }
