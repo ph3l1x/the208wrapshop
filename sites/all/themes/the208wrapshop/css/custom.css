@@ -13,6 +13,9 @@
   border: 0;
   z-index: 1; }
 
+.not-front .navbar {
+  background: url("../images/wrapshop-bg.jpg"); }
+
 header.container-fluid {
   padding-left: 0;
   padding-right: 0; }
@@ -340,6 +343,3 @@ footer.container-fluid {
   #block-block-14 a:hover {
     color: #FB0001;
     text-decoration: none; }
-
-*, *::before, *::after {
-  outline: 2px solid hotpink; }

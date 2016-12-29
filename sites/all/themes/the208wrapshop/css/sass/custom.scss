@@ -18,7 +18,9 @@ body {
   border: 0;
   z-index: 1;
 }
-
+.not-front .navbar {
+  background: url('../images/wrapshop-bg.jpg');
+}
 header.container-fluid {
   padding-left: 0;
   padding-right: 0;
@@ -438,4 +440,4 @@ footer.container-fluid {
     text-decoration: none;
   }
 }
-*, *::before, *::after {outline: 2px solid hotpink;}
+//*, *::before, *::after {outline: 2px solid hotpink;}
