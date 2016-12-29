@@ -121,10 +121,10 @@
       <p class="lead"><?php print $site_slogan; ?></p>
     <?php endif; ?>
 
-    <?php print render($page['header']); ?>
+    <?php print render($page['header']); // This is TOP BAR REGION ?>
   </header> <!-- /#page-header -->
 
-  <div class="row">
+  <div class="xxxx">
 
     <?php if (!empty($page['sidebar_first'])): ?>
       <aside class="col-sm-3" role="complementary">

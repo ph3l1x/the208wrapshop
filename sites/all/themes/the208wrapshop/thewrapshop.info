@@ -27,9 +27,10 @@ regions[page_bottom]    = 'Page bottom'
 ;; Stylesheets
 ;;;;;;;;;;;;;;;;;;;;;
 
-;stylesheets[all][] = css/style.css
-stylesheets[all][] = bootstrap/dist/css/bootstrap.css
-stylesheets[all][] = css/custom.min.css
+stylesheets[all][]    = 'bootstrap/dist/css/bootstrap.css'
+stylesheets[all][]    = 'css/animations.css'
+stylesheets[all][]    = 'css/parallax-scroll.css'
+stylesheets[all][]    = 'css/custom.min.css'
 
 
 ;;;;;;;;;;;;;;;;;;;;;
@@ -48,7 +49,9 @@ scripts[] = 'bootstrap/js/popover.js'
 scripts[] = 'bootstrap/js/scrollspy.js'
 scripts[] = 'bootstrap/js/tab.js'
 scripts[] = 'bootstrap/js/transition.js'
-scripts[] = js/wrapshop.js
+scripts[] = 'js/css3-animate-it.js'
+scripts[] = 'js/parallax-scroll.js'
+scripts[] = 'js/wrapshop.js'
 
 ; Disable the CDN provider so compiled source files can be used.
 settings[bootstrap_cdn] = ''
